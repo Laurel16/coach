@@ -13,7 +13,7 @@
 
                     <div class="field">
                       <%= f.label :full_name, class: "label" %>
-                      <%= f.email_field :full_name, autofocus: true, autocomplete: "full_name", class: "input" %>
+                      <%= f.field :full_name, autofocus: true, autocomplete: "full_name", class: "input" %>
                     </div>
 
                     <div class="field">
@@ -34,8 +34,8 @@
                       <%= f.password_field :password_confirmation, autocomplete: "new-password",class: "input"  %>
                     </div>
 
-                    <div class="actions">
-                      <%= f.submit "Sign up", class: "button is-danger is-fullwidth" %>
+                    <div class="field">
+                      <%= f.submit "Sign up", class: "button is-danger is-fullwidth m-t-10 m-b-10" %>
                     </div>
                   <% end %>
 
