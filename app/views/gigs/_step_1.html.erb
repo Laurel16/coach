@@ -1,0 +1,22 @@
+      <div class="step-content <%='is-active' if @step ==1 %>">
+
+      <div class="field">
+        <label class="label">
+          Gig title
+        </label>
+        <%= f.text_area :title, autocomplete: "title", class:"textarea" %>
+      </div>
+      <div class="field">
+        <label class="label">
+          Category
+        </label>
+        <%= f.select(:category_id, options_for_select(@categories.map {|c| [c.name, c.id]}, selected: @gig.category.id )) %>
+      </div>
+      <div class="field ">
+        <label class="label checkbox">
+          <%= f.check_box :has_single_pricing, class: "checkbox", onchange: "this.form.submit();"%> Has single price
+        </label>
+
+
+      </div>
+    </div>
