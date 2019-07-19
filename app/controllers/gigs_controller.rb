@@ -26,10 +26,9 @@ class GigsController < ApplicationController
   end
 
   def update
-    binding.pry
 
       if @step == 2
-        gig_params[:pricing_attributes].each do |index, pricing|
+        gig_params[:pricings_attributes].each do |index, pricing|
           if @gig.has_single_pricing && pricing[:pricing_type] != Pricing.pricing_types.key(0)
             next;
           else
@@ -58,18 +57,21 @@ class GigsController < ApplicationController
           end
         end
       end
+
+      if @gig.description.blank?
+      return redirect_to edit_gig_path(@gig, step:3), flash: {error: "Description cannot be blank"}
+      elsif @gig.photos.blank?
+      return redirect_to edit_gig_path(@gig, step:4), flash: {error: "You don't have any photos"}
+      end
+
     end
 
-    if @gig.description.blank?
-      return redirect_to edit_gig_path(@gig, step:3), flash: {error: "Description cannot be blank"}
-    elsif @gig.photos.blank?
-    return redirect_to edit_gig_path(@gig, step:4), flash: {error: "You don't have any photos"}
-    end
+
 
   if @gig.update(gig_params)
-    flash[:notice] = "Save"
+    flash[:notice] = "Saved"
   else
-    return redirect_to request.referrer, flash: {errors: @gig.errors.full_messages}
+    return redirect_to request.referrer, flash: {error: @gig.errors.full_messages}
   end
 
   if @step < 5
