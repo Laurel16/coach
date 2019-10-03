@@ -23,6 +23,11 @@ $sides: (top, bottom, left, right);
     margin-top: #{$space}px !important;
     margin-bottom: #{$space}px !important;
   }
+
+   .f-#{$space} {
+    font-size: #{$space}px !important;
+  }
+
 }
 
 .is-horizontal-center {
@@ -37,4 +42,21 @@ $sides: (top, bottom, left, right);
   color: #ffbf00;
   font-size: 13px;
   font-weight: 600;
+}
+
+.dropzone {
+  border: 2px dashed #0087F7 !important;
+  border-radius: 5px;
+  background: white;
+}
+
+.dropzone .dz-message {
+  font-weight: 400;
+}
+
+.dropzone .dz-message .note {
+  font-size: 0.8em;
+  font-weight: 200;
+  display: black;
+  margin-top: 1.4rem;
 }
