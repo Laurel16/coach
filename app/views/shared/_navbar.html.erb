@@ -111,14 +111,10 @@
           <a class="navbar-link">
             Orders
           </a>
+            <div class="navbar-dropdown">
+        <%= link_to 'Selling orders', selling_orders_path, class:"navbar-item"  %>
+        <%= link_to 'Buying orders', buying_orders_path, class:"navbar-item"  %>
 
-          <div class="navbar-dropdown">
-            <a class="navbar-item">
-              Selling orders
-            </a>
-            <a class="navbar-item">
-              Buying orders
-            </a>
         </div>
       </div>
        <%=link_to 'Earnings', dashboard_path, class:"navbar-item" %>
