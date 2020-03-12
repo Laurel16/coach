@@ -1,5 +1,13 @@
 Rails.application.routes.draw do
 
+  get 'requests/index'
+  get 'requests/new'
+  get 'requests/create'
+  get 'requests/edit'
+  get 'requests/update'
+  get 'requests/show'
+  get 'requests/destroy'
+  get 'requests/list'
   root 'pages#home'
   get '/dashboard', to: 'users#dashboard'
   get '/users/:id', to: 'users#show'
