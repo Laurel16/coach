@@ -85,9 +85,8 @@
           </a>
 
           <div class="navbar-dropdown">
-            <a class="navbar-item">
-              Post request
-            </a>
+            <%= link_to 'Post Request', new_request_path, class: "navbar-item" %>
+            <%= link_to 'Manage Requests', requests_path, class: "navbar-item" %>
             <a class="navbar-item">
               Manage request
             </a>
@@ -99,9 +98,7 @@
           </a>
 
           <div class="navbar-dropdown">
-            <a class="navbar-item">
-              Active request
-            </a>
+            <%= link_to 'Active Requests', all_requests_path, class: "navbar-item" %>
             <a class="navbar-item">
               Offers sent
             </a>

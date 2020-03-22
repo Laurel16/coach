@@ -3,7 +3,9 @@ class RequestsController < ApplicationController
   before_action :set_request, except: [:new, :create, :index, :list]
   before_action :is_authorised, only: [:edit, :update, :destroy]
   before_action :set_categories, only: [:new, :edit, :list]
+
   def index
+    @requests = current_user.requests
   end
 
   def new
@@ -29,9 +31,17 @@ class RequestsController < ApplicationController
   end
 
   def destroy
+    @request.destroy
+    redirect_to requests_path, notice: "removed"
   end
 
   def list
+    @category_id = params[:category]
+    if @category_id.present?
+      @requests = Request.where(category_id: @category_id)
+    else
+      @requests = Request.all
+    end
   end
 
   private
