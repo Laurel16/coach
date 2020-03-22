@@ -4,7 +4,7 @@ class CreateOffers < ActiveRecord::Migration[6.0]
       t.text :note
       t.integer :amount
       t.integer :days
-      t.integer :status, default: 0
+      t.integer :status, :default => 0, :null => false
       t.references :request, null: false, foreign_key: true
       t.references :user, null: false, foreign_key: true
 

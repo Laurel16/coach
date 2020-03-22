@@ -70,7 +70,7 @@ ActiveRecord::Schema.define(version: 2020_03_22_142506) do
     t.text "note"
     t.integer "amount"
     t.integer "days"
-    t.integer "status"
+    t.integer "status", default: 0, null: false
     t.bigint "request_id", null: false
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false

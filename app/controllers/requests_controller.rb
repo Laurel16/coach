@@ -42,6 +42,10 @@ class RequestsController < ApplicationController
     else
       @requests = Request.all
     end
+
+  def offers
+    @offers = @request.offers
+  end
   end
 
   private
