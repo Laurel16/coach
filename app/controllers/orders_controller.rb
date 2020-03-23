@@ -18,7 +18,6 @@ class OrdersController < ApplicationController
 
   def buying_orders
     @orders = current_user.buying_orders
-  redirect_to request.referrer
   end
 
   def complete
