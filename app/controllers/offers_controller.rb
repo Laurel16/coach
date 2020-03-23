@@ -11,29 +11,52 @@ def create
   end
 
   if Offer.exists?(user_id: current_user.id, request_id: offer_params[:request_id])
-    redirect_to request.referrer, alert: "You can make only one offer at the moment"
+    redirect_to request.referrer, alert: "You can make only one offer at the moment" and return
   end
 
   @offer = current_user.offers.build(offer_params)
   if @offer.save
-    redirect_to request.referrer, notice: "saved"
+    redirect_to my_offers_path, notice: "saved" and return
   else
     redirect_to request.referrer, flash: {error: @offer.errors.full_massages.join(',')}
   end
 end
 
 def accept
+  if @offer.pending?
+    @offer.accepted!
 
+    if charge(@offer.request, @offer)
+    flash[:notice] = "Accepted"
+    return redirect_to buying_orders_path
+  else
+    flash[:alert] = "cannot create your order"
+  end
+end
+  redirect_to request.referrer
 end
 
 def reject
-
+  if @offer.pending?
+    @offer.rejected!
+    flash[:notice] = "Rejected"
+  end
+  redirect_to request.referrer
 end
 
 private
 
-def charge
+def charge(req, offer)
+    order = req.orders.new
+    order.due_date = Date.today() + offer.days
+    order.title = req.title
+    order.seller_name = offer.user.full_name
+    order.seller_id = req.user.id
+    order.buyer_name = current_user.full_name
+    order.buyer_id = current_user.id
+    order.amount = offer.amount
 
+    order.save
 end
 
 def set_offer
@@ -41,7 +64,7 @@ def set_offer
 end
 
 def is_authorised
-  redirect_to rooth_path, alert: "You don't have permission" unless current_user.id == @offer.request.user_id
+  redirect_to root_path, alert: "You don't have permission" unless current_user.id == @offer.request.user_id
 end
 
 def offer_params

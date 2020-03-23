@@ -18,8 +18,6 @@ class OrdersController < ApplicationController
 
   def buying_orders
     @orders = current_user.buying_orders
-  end
-
   redirect_to request.referrer
   end
 
@@ -32,7 +30,6 @@ class OrdersController < ApplicationController
       else
       flash[:notice] = "Something went wrong.."
       end
-
       redirect_to request.referrer
     end
   end
