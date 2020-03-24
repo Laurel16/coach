@@ -13,7 +13,7 @@ class Gig < ApplicationRecord
   validates :title, presence: {message:'cannot be blank'}
 
   def average_rating
-    reviews.count == 0 ? 0 : reviews.average[:stars].round(1)
+    reviews.count == 0 ? 0 : reviews.average(:stars).round(1)
   end
 
 end
