@@ -10,6 +10,11 @@
 
 
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <% if content_for(:head) %>
+      <%= yield(:head) %>
+    <% end %>
+
   </head>
 
   <body>
