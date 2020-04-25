@@ -23,6 +23,7 @@ gem "bulma-extensions-rails", '~> 1.0.30'
 gem 'devise', '=4.6.1'
 gem "faker", '=1.9.3'
 gem 'kaminari'
+gem 'stripe', '=4.18.1'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
