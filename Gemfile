@@ -23,6 +23,7 @@ gem "bulma-extensions-rails", '~> 1.0.30'
 gem 'devise'
 gem "faker", '=1.9.3'
 gem 'kaminari'
+<<<<<<< HEAD
 gem 'stripe', '5.11.0'
 gem 'trestle'
 gem "trestle-auth"
@@ -31,6 +32,9 @@ gem "trestle-tinymce"
 gem 'activemodel', '6.0.3.4'
 gem 'railties'
 
+=======
+gem 'stripe', '=4.18.1'
+>>>>>>> 902a526 (beggin with stripe)
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
