@@ -10,6 +10,8 @@ class OrdersController < ApplicationController
     else
       flash[:alert] = "Price is incorrect"
     end
+
+    redirect_to buying_orders_path
   end
 
   def selling_orders

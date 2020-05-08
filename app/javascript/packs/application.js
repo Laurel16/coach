@@ -11,9 +11,12 @@ require("raty-js")
 
 window.Noty = require("noty");
 window.Dropzone = require("dropzone");
-window.BulmaCarousel = require("bulma-extensions/bulma-carousel/dist/js/bulma-carousel"
-)
+window.BulmaCarousel = require("bulma-extensions/bulma-carousel/dist/js/bulma-carousel")
 
+
+window.Calendar = require("@fullcalendar/core").Calendar;
+window.DayGridPlugin = require("@fullcalendar/daygrid").default;
+window.ListPlugin = require("@fullcalendar/list").default;
 
 
 // Uncomment to copy all static images under ../images to the output folder and reference
