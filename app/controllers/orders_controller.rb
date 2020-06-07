@@ -81,7 +81,7 @@ class OrdersController < ApplicationController
         else
             charge = Stripe::Charge.create({
                 amount: (amount * 100).to_i,
-                currency: 'usd',
+                currency: 'eur',
                 customer: current_user.stripe_id,
                 source: params[:payment],
             })

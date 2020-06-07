@@ -76,3 +76,23 @@ border-color: #00d1b2 !important;
   background: url('/assets/home/background.jpg') center center;
   background-size: cover;
 }
+
+/* calendar */
+.fc-past {
+  background-color: grey;
+}
+
+.fc-content {
+  height: 40px;
+}
+.fc-event {
+  border: none !important;
+}
+
+.fc-title {
+  font-size: 14px;
+  font-weight: 500;
+  position: relative;
+  top: 0px;
+  left: 20px;
+}
