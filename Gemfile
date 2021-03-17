@@ -1,10 +1,10 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.6.2'
+ruby '2.6.6'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '=6.0.0.beta3'
+gem 'rails', '6.0.3.4'
 # Use postgresql as the database for Active Record
 gem 'pg', '>= 0.18', '< 2.0'
 # Use Puma as the app server
@@ -20,7 +20,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'bootsnap', '>= 1.4.2', require: false
 gem 'bulma-rails', '~> 0.7.4'
 gem "bulma-extensions-rails", '~> 1.0.30'
-gem 'devise', '=4.6.1'
+gem 'devise'
 gem "faker", '=1.9.3'
 gem 'kaminari'
 gem 'stripe', '5.11.0'
@@ -28,6 +28,9 @@ gem 'trestle'
 gem "trestle-auth"
 gem "trestle-search"
 gem "trestle-tinymce"
+gem 'activemodel', '6.0.3.4'
+gem 'railties'
+
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
